@@ -1,0 +1,1009 @@
+/* =========================================================
+   1. COLOUR AND FONT VARIABLES
+   Change a colour here once and it updates across the whole site.
+   ========================================================= */
+:root {
+    --green: #0f7b5f;        /* main accent: buttons, links, highlights */
+    --green-dark: #0a5c47;   /* hover colour for buttons */
+    --green-soft: #e2f1eb;   /* light green backgrounds (tags, icons) */
+    --green-light: #7fd3b2;  /* green used on dark backgrounds */
+    --ink: #12231d;          /* headings and dark sections */
+    --text: #4b5a54;         /* paragraph text */
+    --muted: #84918b;        /* small, less important text */
+    --bg: #f6f4ee;           /* warm off-white page background */
+    --white: #ffffff;
+    --line: #e3e0d6;         /* borders */
+    --red: #c8372d;          /* delete buttons and errors */
+
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', Arial, sans-serif;
+
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(18, 35, 29, 0.08);
+}
+
+/* =========================================================
+   2. BASE STYLES
+   ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    color: var(--ink);
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+h1,
+h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+}
+
+h2 {
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    line-height: 1.1;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 10px;
+}
+
+/* The highlighted word in a heading, e.g. "Get to know <em>me</em>" */
+h1 em,
+h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--green);
+}
+
+main p {
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0 0 16px;
+}
+
+main p.lead {
+    font-size: 1.2rem;
+    max-width: 620px;
+}
+
+/* Small label above a heading, e.g. "— ABOUT ME" */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 16px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: var(--green);
+}
+
+/* =========================================================
+   4. BUTTONS
+   ========================================================= */
+button,
+.btn {
+    display: inline-block;
+    background-color: var(--green);
+    color: var(--white);
+    border: 2px solid var(--green);
+    border-radius: 999px;
+    padding: 12px 26px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* A see-through button with a green outline */
+.btn-outline {
+    background-color: transparent;
+    color: var(--green);
+}
+
+/* A white button for dark backgrounds */
+.btn-light {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--ink);
+}
+
+.btn-light:hover {
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: var(--white);
+}
+
+/* =========================================================
+   5. HEADER AND NAVIGATION
+   ========================================================= */
+.site-header {
+    position: sticky;      /* stays at the top while you scroll */
+    top: 0;
+    z-index: 10;
+    background-color: rgba(246, 244, 238, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 76px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* Your round logo image */
+.logo-mark {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.logo:hover .logo-mark {
+    transform: rotate(-8deg) scale(1.05);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    position: relative;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 0;
+}
+
+/* The green line under each link: hidden until hover */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--green);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--green);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-cta {
+    padding: 10px 22px;
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   6. HOMEPAGE HERO
+   ========================================================= */
+.hero-section {
+    padding: 90px 0 100px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.hero-text {
+    flex: 1;
+    animation: rise 0.7s ease both;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.hero-photo {
+    flex: 0 0 auto;
+    animation: rise 0.7s ease 0.15s both;
+}
+
+.hero-photo img {
+    width: 340px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 24px;
+    background-color: var(--white);
+    box-shadow: 18px 18px 0 var(--green);   /* the solid green block behind the photo */
+}
+
+/* Fade-and-rise animation used on page load */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   7. PAGE HEADERS (top of About, Projects, Planner, Contact)
+   ========================================================= */
+.page-header {
+    padding: 80px 0 40px;
+}
+
+.page-header .container {
+    animation: rise 0.7s ease both;
+}
+
+/* =========================================================
+   8. BANDS (full-width coloured sections)
+   ========================================================= */
+.band-white {
+    background-color: var(--white);
+}
+
+.band-green {
+    background-color: var(--green);
+}
+
+.band-green h2 {
+    color: var(--white);
+}
+
+.band-green h2 em,
+.band-green .eyebrow {
+    color: #c6f1df;
+}
+
+.band-green .eyebrow::before {
+    background-color: #c6f1df;
+}
+
+.band-green p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Section heading row: heading on the left, short text on the right */
+.section-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 44px;
+}
+
+.section-intro p {
+    max-width: 380px;
+}
+
+/* "Let's talk" call-to-action band */
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.cta h2 {
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   9. CARDS
+   ========================================================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.card {
+    display: flex;              /* stacks the card's content so the link */
+    flex-direction: column;     /* can sit at the very bottom */
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(18, 35, 29, 0.12);
+}
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--green-soft);
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+}
+
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    margin-top: auto;    /* pushes the link to the bottom so all three line up */
+    font-weight: 700;
+}
+
+.card-link:hover {
+    color: var(--green-dark);
+}
+
+/* Simple white box used on the About page */
+.info-card {
+    background-color: var(--white);
+    padding: 32px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+/* =========================================================
+   10. PILLS AND TAGS (lists shown as rounded labels)
+   ========================================================= */
+.pill-list,
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill-list li {
+    background-color: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.pill-list li:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.tags {
+    margin-bottom: 14px;
+}
+
+.tags li {
+    background-color: var(--green-soft);
+    color: var(--green-dark);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Strip of tools under the homepage hero */
+.tools-strip {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.tools-strip .container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.tools-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.tools-strip .pill-list li {
+    background-color: var(--bg);
+}
+
+/* =========================================================
+   11. TABLE (About page)
+   ========================================================= */
+.table-wrap {
+    overflow-x: auto;    /* lets the table scroll sideways on small phones */
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--white);
+}
+
+th,
+td {
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+td {
+    color: var(--text);
+}
+
+/* =========================================================
+   12. AUDIO INTRO (About page)
+   ========================================================= */
+.audio-section {
+    padding-top: 0;
+}
+
+.audio-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    max-width: 760px;
+    background-color: var(--green-soft);
+    padding: 28px 32px;
+    border-radius: 20px;
+}
+
+.audio-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    background-color: var(--white);
+    flex-shrink: 0;    /* stops the photo from getting squashed */
+}
+
+.audio-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.audio-body h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+audio {
+    width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   13. FORMS (Contact page)
+   ========================================================= */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.form-card {
+    background-color: var(--white);
+    padding: 36px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 800;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+input,
+textarea {
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background-color: #fbfaf7;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--ink);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 4px var(--green-soft);
+}
+
+form button {
+    align-self: flex-start;
+    margin-top: 14px;
+}
+
+#form-message {
+    margin: 6px 0 0;
+}
+
+#form-message:empty {
+    display: none;
+}
+
+.error {
+    color: var(--red);
+    font-weight: 700;
+}
+
+.success {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* =========================================================
+   14. ACADEMIC PLANNER
+   ========================================================= */
+.planner-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.planner-card {
+    background-color: var(--white);
+    padding: 36px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.task-form {
+    flex-direction: row;
+}
+
+.task-form input {
+    flex: 1;
+    min-width: 0;    /* lets the box shrink on small phones */
+}
+
+.task-form button {
+    margin-top: 0;
+    align-self: stretch;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+/* Message shown when the list is empty */
+#task-list:empty::before {
+    content: "No tasks yet. Add your first one above.";
+    display: block;
+    text-align: center;
+    padding: 28px;
+    color: var(--muted);
+    border: 2px dashed var(--line);
+    border-radius: 14px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border-left: 4px solid var(--line);
+    transition: border-color 0.3s ease;
+}
+
+.task span {
+    flex: 1;
+    font-weight: 500;
+}
+
+.task button {
+    padding: 7px 16px;
+    font-size: 0.85rem;
+}
+
+.task.completed {
+    border-left-color: var(--green);
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.delete-btn {
+    background-color: transparent;
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.delete-btn:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+/* "How it works" box beside the planner */
+.planner-tips {
+    background-color: var(--green-soft);
+    padding: 32px;
+    border-radius: 20px;
+}
+
+.steps {
+    list-style: none;
+    counter-reset: step;    /* starts a counter at 0 for the numbered circles */
+    padding: 0;
+    margin: 0;
+}
+
+.steps li {
+    counter-increment: step;    /* adds 1 for each step */
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 20px;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.steps li:last-child {
+    margin-bottom: 0;
+}
+
+.steps li::before {
+    content: counter(step);     /* shows the number: 1, 2, 3 */
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--green);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.steps strong {
+    color: var(--ink);
+}
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+.site-footer {
+    background-color: var(--ink);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 56px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+
+.site-footer .logo {
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+/* Thin light ring so the black logo still stands out on the dark footer */
+.site-footer .logo-mark {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: var(--green-light);
+}
+
+.footer-bottom p {
+    margin: 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   16. RESPONSIVE DESIGN (tablets and phones)
+   ========================================================= */
+@media (max-width: 860px) {
+    .nav-bar {
+        flex-wrap: wrap;
+        padding: 12px 24px;
+        min-height: auto;
+    }
+
+    /* Move the links onto their own row under the logo */
+    nav {
+        order: 3;
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    .contact-layout,
+    .planner-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 56px 0;
+    }
+
+    .hero-section {
+        padding: 48px 0 64px;
+    }
+
+    /* Photo on top, text underneath, everything centred */
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-photo img {
+        width: 240px;
+        box-shadow: 12px 12px 0 var(--green);
+    }
+
+    .page-header {
+        padding: 56px 0 24px;
+    }
+
+    .section-intro,
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .form-card,
+    .planner-card {
+        padding: 24px;
+    }
+
+    /* Audio card: photo on top, everything centred */
+    .audio-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+    }
+
+    .audio-body {
+        width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav-bar {
+        padding: 12px 16px;
+    }
+
+    /* Contact is already in the menu, so hide the extra button */
+    .nav-cta {
+        display: none;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    .logo-mark {
+        width: 42px;
+        height: 42px;
+    }
+
+    .footer-links {
+        gap: 10px 20px;
+    }
+
+    .task {
+        flex-wrap: wrap;
+    }
+
+    .task span {
+        flex-basis: 100%;
+    }
+}
+
+/* Turn off animations for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

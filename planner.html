@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner | Segun Yusuf</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="" class="logo-mark">Segun Yusuf</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html" class="active">Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn nav-cta">Get in touch</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="eyebrow">Academic planner</p>
+                <h1>Plan it. <em>Do it.</em></h1>
+                <p class="lead">Keep track of your assignments, study sessions and deadlines in one place.</p>
+            </div>
+        </section>
+
+        <section class="band-white">
+            <div class="container planner-layout">
+                <div class="planner-card">
+                    <h2>My Tasks</h2>
+                    <form id="task-form" class="task-form">
+                        <input type="text" id="task-input" placeholder="e.g. Submit COS 106 project">
+                        <button type="submit">Add Task</button>
+                    </form>
+                    <ul id="task-list"></ul>
+                </div>
+
+                <aside class="planner-tips">
+                    <p class="eyebrow">How it works</p>
+                    <ol class="steps">
+                        <li><strong>Add a task</strong>, like an assignment, a reading or a study session. Press
+                            Enter to add it quickly.</li>
+                        <li><strong>Click Done</strong> when you finish it. The task gets crossed out, and Undo
+                            brings it back.</li>
+                        <li><strong>Click Delete</strong> to remove tasks you no longer need.</li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <a href="index.html" class="logo"><img src="images/logo.png" alt="" class="logo-mark">Segun Yusuf</a>
+                <p>Software Engineering student, designer and web developer.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Segun Yusuf. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="planner.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Segun Yusuf</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="" class="logo-mark">Segun Yusuf</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Planner</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn nav-cta">Get in touch</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="eyebrow">Contact</p>
+                <h1>Let's <em>connect</em>.</h1>
+                <p class="lead">Have a question or want to work together? Send me a message below.</p>
+            </div>
+        </section>
+
+        <section class="band-white">
+            <div class="container contact-layout">
+                <div>
+                    <h2>Send me a <em>message</em>.</h2>
+                    <p>Fill in the form and I'll get back to you as soon as I can. I'm happy to chat about:</p>
+                    <ul class="check-list">
+                        <li>Website and web app projects</li>
+                        <li>Graphic and UI design work</li>
+                        <li>Collaborations with other students</li>
+                        <li>Questions about my projects</li>
+                    </ul>
+                </div>
+
+                <div class="form-card">
+                    <form id="contact-form" novalidate>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your full name">
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com">
+
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="08012345678">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Write your message here"></textarea>
+
+                        <p id="form-message"></p>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <a href="index.html" class="logo"><img src="images/logo.png" alt="" class="logo-mark">Segun Yusuf</a>
+                <p>Software Engineering student, designer and web developer.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Segun Yusuf. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="contact.js"></script>
+</body>
+
+</html>
