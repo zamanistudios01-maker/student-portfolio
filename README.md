@@ -2,6 +2,8 @@
 
 A responsive, multi-page student portfolio and academic management website, built with **HTML, CSS and JavaScript** for the **COS 106: Introduction to Web Technologies** term project at MIVA Open University.
 
+**Live site:** https://zamanistudios01-maker.github.io/student-portfolio/
+
 ## Pages
 
 | Page | What it contains |
@@ -51,6 +53,7 @@ student-portfolio/
 ├── style.css
 ├── contact.js
 ├── planner.js
+├── intro.mp3
 ├── Intro.m4a
 └── images/
     ├── f3.png
